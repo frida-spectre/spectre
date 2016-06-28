@@ -1,1 +1,0 @@
-/// <reference path="./c2/c2.ts" />

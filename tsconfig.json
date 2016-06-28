@@ -2,39 +2,24 @@
     "compilerOptions": {
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "target": "ES5",
-        "module": "system",
-        "outFile": "./dist/spectre.js"
+        "target": "ES6",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "declaration": true,
+        "removeComments": true,
+        "noImplicitUseStrict": true
     },
     "filesGlob": [
         "./src/**/*.ts"
     ],
     "files": [
-        "src/boot-create-c2.ts",
-        "src/boot-install-hooks.ts",
-        "src/c2/Actor.ts",
-        "src/c2/Config.ts",
-        "src/c2/Enums/DebugOverlay.ts",
-        "src/c2/Enums/DebugRenderOption.ts",
-        "src/c2/Enums/KeyState.ts",
-        "src/c2/Enums/ModifierKeyState.ts",
-        "src/c2/EventHandler.ts",
-        "src/c2/Events.ts",
-        "src/c2/Events/KeyboardEventParameter.ts",
-        "src/c2/FFI.ts",
-        "src/c2/Game.ts",
-        "src/c2/Global00B584D0.ts",
-        "src/c2/Macros/Macro.ts",
-        "src/c2/Macros/SpawnCigarettePack.ts",
-        "src/c2/Macros/SpawnGermanSoldier.ts",
-        "src/c2/ObjGameOffset640.ts",
-        "src/c2/Renderer.ts",
-        "src/c2/Viewport.ts",
-        "src/c2/c2.ts",
-        "src/common/Frida.ts",
-        "src/common/KeyCode.ts",
-        "src/common/NativeObject.ts",
-        "src/common/NativeUtils.ts",
-        "src/common/Unknown.ts"
+        "./src/Frida.d.ts",
+        "./src/KeyCode.ts",
+        "./src/NativeDecorations.ts",
+        "./src/NativeGetterFunc.ts",
+        "./src/NativeObject.ts",
+        "./src/NativeSetterFunc.ts",
+        "./src/Primitives.ts",
+        "./src/Unknown.ts"
     ]
 }
