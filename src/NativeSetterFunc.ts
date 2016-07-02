@@ -1,4 +1,4 @@
-/// <reference path="./Frida.d.ts"/>
+/// <reference path="Frida.ts"/>
 
 export interface NativeSetterFunc {
     (address: NativePointer, value: any, length: number): void;

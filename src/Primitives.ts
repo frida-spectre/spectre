@@ -1,4 +1,4 @@
-/// <reference path="./Frida.d.ts" />
+/// <reference path="Frida.ts" />
 
 import {NativeGetterFunc} from './NativeGetterFunc';
 import {NativeSetterFunc} from './NativeSetterFunc';

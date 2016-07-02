@@ -1,4 +1,4 @@
-/// <reference path="Frida.d.ts"/>
+/// <reference path="Frida.ts"/>
 
 export class NativeObject {
     selfPointer: NativePointer;

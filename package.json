@@ -1,6 +1,6 @@
 {
   "name": "spectre",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "gulp": "~3.9.1",
     "gulp-clean": "~0.3.2",
@@ -10,6 +10,7 @@
     "merge-stream": "~1.0.0",
     "browserify": "~13.0.1",
     "tsconfig-glob": "~0.4.3",
-    "typescript": "~1.8.10"
+    "typescript": "~1.8.10",
+    "gulp-sourcemaps": "~1.6.0"
   }
 }

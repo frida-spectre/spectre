@@ -6,6 +6,7 @@ var merge = require('merge-stream');
 var tsconfig = require('tsconfig-glob');
 var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
+var sourceMaps = require('gulp-sourcemaps');
 
 gulp.task('default', function(callback) {
     runSequence(
@@ -17,10 +18,14 @@ gulp.task('default', function(callback) {
 
 gulp.task('compile-typescript', function() {
     var tsProject = ts.createProject('tsconfig.json');
-    var tsResult = tsProject.src().pipe(ts(tsProject));
+    var tsResult = tsProject.src()
+        .pipe(sourceMaps.init())
+        .pipe(ts(tsProject));
     return merge([
-        tsResult.js.pipe(gulp.dest('./dist')),
-        tsResult.dts.pipe(gulp.dest('./dist')),
+        tsResult.js
+            .pipe(sourceMaps.write())
+            .pipe(gulp.dest('./build/ts-compiled')),
+        tsResult.dts.pipe(gulp.dest('./build/ts-compiled')),
     ]);
 });
 
@@ -38,6 +43,10 @@ gulp.task('tsconfig-glob', function() {
 });
 
 gulp.task('clean', function() {
-    return gulp.src('./dist')
-        .pipe(clean());
+    var distClean = gulp.src('./dist').pipe(clean());
+    var buildClean = gulp.src('./build').pipe(clean());
+    return merge([
+        distClean,
+        buildClean
+    ])
 });

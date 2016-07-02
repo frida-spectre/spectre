@@ -13,7 +13,7 @@
         "./src/**/*.ts"
     ],
     "files": [
-        "./src/Frida.d.ts",
+        "./src/Frida.ts",
         "./src/KeyCode.ts",
         "./src/NativeDecorations.ts",
         "./src/NativeGetterFunc.ts",

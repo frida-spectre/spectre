@@ -1,4 +1,4 @@
-/// <reference path="./Frida.d.ts" />
+/// <reference path="Frida.ts" />
 
 import { NativeObject } from './NativeObject';
 import { NativeGetterFunc, NativeGetter } from './NativeGetterFunc';
@@ -14,10 +14,10 @@ export function property<T extends NativeObject>(
         let getter: NativeGetterFunc;
         let setter: NativeSetterFunc;
 
-        if (<Primitive>type) {
+        if (type instanceof Primitive) {
             getter = (<Primitive>type).getGetterFunc();
             setter = (<Primitive>type).getSetterFunc();
-        } else if (<{ new (address): T; }>type) {
+        } else {
             getter = (address, length) => { return new (<{ new (address): T; }>type)(address); }
             setter = (address, value, length) => { Memory.writePointer(address, value.selfPointer); }
         }
@@ -26,10 +26,11 @@ export function property<T extends NativeObject>(
             setter = (value) => { throw `Property "${key}" is read-only.` };
         }
 
-        if (delete this[key]) {
+        if (delete target[key]) {
             Object.defineProperty(target, key, {
                 get: NativeGetter(offset, getter, length),
-                set: NativeSetter(offset, setter, length)
+                set: NativeSetter(offset, setter, length),
+                enumerable: true
             });
         }
     }
