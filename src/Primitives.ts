@@ -1,7 +1,7 @@
 /// <reference path="Frida.ts" />
 
-import {NativeGetterFunc} from './NativeGetterFunc';
-import {NativeSetterFunc} from './NativeSetterFunc';
+import {NativeGetterFunc} from './native-getter';
+import {NativeSetterFunc} from './native-setter';
 
 export abstract class Primitive {
     abstract getGetterFunc(): NativeGetterFunc;

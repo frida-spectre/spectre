@@ -1,4 +1,4 @@
-/// <reference path="Frida.ts"/>
+/// <reference path="frida.ts"/>
 
 export interface NativeGetterFunc {
     (address: NativePointer, length: number): any;
@@ -8,11 +8,11 @@ export function NativeGetter(offset: number, getter: NativeGetterFunc, length: n
     return function () {
         let base;
 
-        if ('selfPointer' in this) {
-            base = this.selfPointer;
+        if ('_selfPointer' in this._selfPointer) {
+            base = this._selfPointer;
         } else {
             base = ptr(0);
-            console.warn('No selfPointer found!');
+            console.warn('No _selfPointer found!');
         }
 
         return getter(base.add(offset), length);

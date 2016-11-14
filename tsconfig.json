@@ -4,22 +4,17 @@
         "experimentalDecorators": true,
         "target": "ES6",
         "module": "commonjs",
-        "outDir": "./dist",
         "declaration": true,
-        "removeComments": true,
         "noImplicitUseStrict": true
     },
-    "filesGlob": [
-        "./src/**/*.ts"
-    ],
     "files": [
-        "./src/Frida.ts",
-        "./src/KeyCode.ts",
-        "./src/NativeDecorations.ts",
-        "./src/NativeGetterFunc.ts",
-        "./src/NativeObject.ts",
-        "./src/NativeSetterFunc.ts",
-        "./src/Primitives.ts",
-        "./src/Unknown.ts"
+        "./src/frida.ts",
+        "./src/key-code.ts",
+        "./src/property.ts",
+        "./src/native-getter.ts",
+        "./src/native-setter.ts",
+        "./src/native-object.ts",
+        "./src/primitives.ts",
+        "./src/unknown.ts"
     ]
 }
